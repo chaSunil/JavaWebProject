@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- JavaScript External 연결 -->
+	<script src="../js/person.js">
+	// 주의) 절대 경로 연결되어있는 script 사이에 다른 코드 작성하지 말 것
+	</script>
+	
+	<script type="text/javascript">
+	
+		const p = new Person("홍길동",30,"010-1234-1234");
+		
+		p.age = -25;
+		document.write("p's name : " + p.name + "<br>");
+		document.write("p's age : " + p['age'] + "<br>");
+		document.write("p's tel : " + p.tel + "<br>");
+		
+		document.write("p's JSON : " + p.toJSON() + "<br>");
+		
+		// JSON.parse("str json")
+		// string -> JSON으로 변환
+		const pp = JSON.parse(p.toJSON());
+				
+		document.write(typeof(pp) + "<br>");
+		document.write(pp.name+"<br>");
+		
+		document.write(p.age(50));
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

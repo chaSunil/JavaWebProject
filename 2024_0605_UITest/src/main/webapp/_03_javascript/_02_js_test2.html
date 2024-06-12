@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script type="text/javascript">
+	
+		// 정규표현식(숫자만 입력할 수 있게끔)
+		// ^: 시작하는 값
+		// [0-9] 0부터 9까지의 숫자
+		// {1,6} 1자리부터 6자리까지
+		// $: 끝나는 값
+		//                     숫자 6자리 Pattern
+		const regular_number= /^[0-9]{1,6}$/;
+	
+		function plus() {
+			//window.alert('더해줘?');
+			// 2개의 입력값 읽어오기
+			// id= su1 Element에서 value값을 얻어온다.
+			let su1 = document.getElementById("su1").value;
+			let su2 = document.getElementById("su2").value;
+			
+			// regular_number pattern과 일치하면 true, 아니면 false
+			if( regular_number.test(su1) == false ) {
+				alert("su1에는 1의 자리에서 부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su1").value= ""; // 적어놨던거 지우기
+				document.getElementById("su1").focus(); // 입력포커스
+				return; // 함수 끝내라
+			}
+			if( regular_number.test(su2) == false ) {
+				alert("su2에는 1의 자리에서  부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su2").value= ""; // 적어놨던거 지우기
+				document.getElementById("su2").focus(); // 입력포커스
+				return; // 함수 끝내라
+			}
+			
+			// 읽어온 값을 연산한다
+			// 방법1) String -> int  parse("123") -> 123
+			let result = parseInt(su1) + parseInt(su2);
+			// 방법2) String -> int  Number("123") -> 123
+			let result2 = Number(su1) + Number(su2);
+			// 결과값을 id= result인 Element에 넣는다.
+			document.getElementById("result").value = result2;
+		}
+		
+		function minus() {
+			let su1 = document.getElementById("su1").value;
+			let su2 = document.getElementById("su2").value;
+			
+			if( regular_number.test(su1) == false ) {
+				alert("su1에는 1의 자리에서 부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su1").value= "";
+				document.getElementById("su1").focus();
+				return; // 함수 끝내라
+			}
+			if( regular_number.test(su2) == false ) {
+				alert("su2에는 1의 자리에서  부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su2").value= "";
+				document.getElementById("su2").focus();
+				return;
+			}
+			
+			let result = su1 - su2;
+			document.getElementById("result").value = result;
+		}
+		
+		
+		function multiply() {
+			let su1 = document.getElementById("su1").value;
+			let su2 = document.getElementById("su2").value;
+			
+			if( regular_number.test(su1) == false ) {
+				alert("su1에는 1의 자리에서 부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su1").value= "";
+				document.getElementById("su1").focus();
+				return; // 함수 끝내라
+			}
+			if( regular_number.test(su2) == false ) {
+				alert("su2에는 1의 자리에서  부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su2").value= "";
+				document.getElementById("su2").focus();
+				return;
+			}
+			
+			let result = su1 * su2;
+			document.getElementById("result").value = result;
+		}
+		
+		
+		function exponential() {
+			let su1 = document.getElementById("su1").value;
+			let su2 = document.getElementById("su2").value;
+			
+			if( regular_number.test(su1) == false ) {
+				alert("su1에는 1의 자리에서 부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su1").value= "";
+				document.getElementById("su1").focus();
+				return; // 함수 끝내라
+			}
+			if( regular_number.test(su2) == false ) {
+				alert("su2에는 1의 자리에서  부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su2").value= "";
+				document.getElementById("su2").focus();
+				return;
+			}
+			
+			let result = su1 ** su2;
+			document.getElementById("result").value = result;
+		}
+		
+		
+		function divide() {
+			let su1 = document.getElementById("su1").value;
+			let su2 = document.getElementById("su2").value;
+			
+			if( regular_number.test(su1) == false ) {
+				alert("su1에는 1의 자리에서 부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su1").value= "";
+				document.getElementById("su1").focus();
+				return; // 함수 끝내라
+			}
+			if( regular_number.test(su2) == false ) {
+				alert("su2에는 1의 자리에서  부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su2").value= "";
+				document.getElementById("su2").focus();
+				return;
+			} else if ( document.getElementById("su2").value == 0 ) {
+				alert("su2에는 0의값을 넣어서 나누면 안됩니다!! 다시 입력하세요!!")
+				document.getElementById("su2").value= "";
+				document.getElementById("su2").focus();
+				return;
+			}
+			
+			let result = su1 / su2;
+			document.getElementById("result").value = result.toFixed(1);
+		}
+		
+		function remain() {
+			let su1 = document.getElementById("su1").value;
+			let su2 = document.getElementById("su2").value;
+			
+			if( regular_number.test(su1) == false ) {
+				alert("su1에는 1의 자리에서 부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su1").value= "";
+				document.getElementById("su1").focus();
+				return; // 함수 끝내라
+			}
+			if( regular_number.test(su2) == false ) {
+				alert("su2에는 1의 자리에서  부터 6자리까지의 숫자만 입력하세요!!")
+				document.getElementById("su2").value= "";
+				document.getElementById("su2").focus();
+				return;
+			}
+			
+			let result = su1 % su2;
+			document.getElementById("result").value = result;
+		}
+		
+		
+	</script>
+
+</head>
+<body>
+	수1:<input id="su1" > <br>
+	수2:<input id="su2" > <br>
+	
+	<input type="button" value="+" onclick="plus();"> 
+	<input type="button" value="-" onclick="minus();"> 
+	<input type="button" value="*" onclick="multiply();"> 
+	<input type="button" value="**" onclick="exponential();"> 
+	<input type="button" value="/" onclick="divide();"> 
+	<input type="button" value="%" onclick="remain();"> 
+	<br>
+	
+	결과:<input id="result" >
+</body>
+</html>

@@ -7,8 +7,9 @@
 <!-- jQuery사용 설정 -->
 <!-- off-line참조 -->
 <script src="js/jquery-1.10.2.js"></script>
-<!-- on-line참조 -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- on-line참조 : CDN(Content Delivery Network) -->
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
 <script type="text/javascript">
 
@@ -19,10 +20,11 @@ function myfunc1(){}
 function init(){ alert('Elment 배치 완료'); }
 
 //2.리터럴방식
-var myfunc2 = function(){}
-var init2   = function(){ alert('리터럴:Elment 배치 완료'); }
-//3.익명함수
-//function(){}
+const myfunc2 = function(){}
+const init2   = function(){ alert('리터럴:Elment 배치 완료'); }
+//3.익명함수 + Arrow Function
+const arrowFn = function(){}
+const arrowFn2 = () => {} // lambda식
 
 
 /* javascript 초기화 방법 */

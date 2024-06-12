@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+#main-menu {
+	margin-top : 100px;
+	list-style: none;
+	background: #fdb133;
+	clear: both;
+}
+
+#main-menu > li {
+	display: inline-block;
+}
+
+#main-menu > li > a {
+	display: block;
+	width: 120px;
+	
+	text-decoration: none;
+	text-align: center;
+	
+	font-size: 22px;
+	font-weight: bold;
+	
+	margin-left: 100px;
+	
+	color: white;
+}
+
+#main-menu > li > a:hover {
+	color: yellow;
+}
