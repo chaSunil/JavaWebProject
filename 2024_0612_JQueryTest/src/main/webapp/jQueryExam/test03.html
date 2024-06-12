@@ -7,72 +7,74 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 	
 <script type="text/javascript">
     // +(1..n)  ?(0..1)  *(0..n)
-	var regular_number = /^[0-9]+$/;
+	const regular_number = /^[0-9]+$/;
 	
+    function plus() {
+		let n1 = $("#num1").val().trim();
+		let n2 = $("#num2").val().trim();
+		
+		//입력값에 대한 체크(숫자만...)
+		if(regular_number.test(n1)==false){
+			alert('숫자만 입력하세요');
+			$("#num1").val("");//값비우기
+			$("#num1").focus();//포커스넣기
+			return;
+		}
+		
+		if(regular_number.test(n2)==false){
+			alert('숫자만 입력하세요');
+			$("#num2").val("");//값비우기
+			$("#num2").focus();//포커스넣기
+			return;
+		}
+					
+		
+		// 문자 => 숫자 변환
+		let num1 = Number(n1);//parseInt(n1);
+		let num2 = Number(n2);//parseInt(n2);
+		let result = num1 + num2;
+		
+		//연산자 넣기
+		$("#op").val("+");
+		
+		$("#result").val(result);
+    }
+    
+    function minus() {
+    	let n1 = $("#num1").val().trim();
+    	let n2 = $("#num2").val().trim();
+		
+		//입력값에 대한 체크(숫자만...)
+		if(regular_number.test(n1)==false){
+			alert('숫자만 입력하세요');
+			$("#num1").val("");//값비우기
+			$("#num1").focus();//포커스넣기
+			return;
+		}
+		
+		if(regular_number.test(n2)==false){
+			alert('숫자만 입력하세요');
+			$("#num2").val("");//값비우기
+			$("#num2").focus();//포커스넣기
+			return;
+		}
+					
+		
+		// 문자 => 숫자 변환
+		let num1 = Number(n1);//parseInt(n1);
+		let num2 = Number(n2);//parseInt(n2);
+		let result = num1 - num2;
+		
+		//연산자 넣기
+		$("#op").val("-");
+		
+		$("#result").val(result);
+    }
+    
 	$(document).ready(function() {
 		
-		$("#plus").click(function() {
-			var n1 = $("#num1").val().trim();
-			var n2 = $("#num2").val().trim();
-			
-			//입력값에 대한 체크(숫자만...)
-			if(regular_number.test(n1)==false){
-				alert('숫자만 입력하세요');
-				$("#num1").val("");//값비우기
-				$("#num1").focus();//포커스넣기
-				return;
-			}
-			
-			if(regular_number.test(n2)==false){
-				alert('숫자만 입력하세요');
-				$("#num2").val("");//값비우기
-				$("#num2").focus();//포커스넣기
-				return;
-			}
-						
-			
-			// 문자 => 숫자 변환
-			var num1 = Number(n1);//parseInt(n1);
-			var num2 = Number(n2);//parseInt(n2);
-			var result = num1 + num2;
-			
-			//연산자 넣기
-			$("#op").val("+");
-			
-			$("#result").val(result);
-		});
-		
-		
-		$('#minus').click(function(){
-			var n1 = $("#num1").val().trim();
-			var n2 = $("#num2").val().trim();
-			
-			//입력값에 대한 체크(숫자만...)
-			if(regular_number.test(n1)==false){
-				alert('숫자만 입력하세요');
-				$("#num1").val("");//값비우기
-				$("#num1").focus();//포커스넣기
-				return;
-			}
-			
-			if(regular_number.test(n2)==false){
-				alert('숫자만 입력하세요');
-				$("#num2").val("");//값비우기
-				$("#num2").focus();//포커스넣기
-				return;
-			}
-						
-			
-			// 문자 => 숫자 변환
-			var num1 = Number(n1);//parseInt(n1);
-			var num2 = Number(n2);//parseInt(n2);
-			var result = num1 - num2;
-			
-			//연산자 넣기
-			$("#op").val("-");
-			
-			$("#result").val(result);
-		});
+		$("#plus").click(plus);
+		$('#minus').click(minus);
 		
 		$('#multiply').click(function(){
 			var n1 = $("#num1").val().trim();
