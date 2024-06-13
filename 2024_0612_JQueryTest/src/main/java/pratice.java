@@ -1,23 +1,17 @@
+import java.util.ArrayList;
 
 public class pratice {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String [] strArr = {"AAA","BBB","CCC","DDD"};
-		String [] answer = new String [strArr.length];
-		for(int i = 0; i < strArr.length; i++) {
-			if(i%2==0) {
-				answer[i] = strArr[i].toLowerCase();
-			} else if(i%2!=0) {
-				answer[i] = strArr[i].toUpperCase();
-			}
-		}
+		String myString = "AbCdEfG";
+		String myString2 = myString.toLowerCase();
 		
-		for(String a : answer) {
-			System.out.println(a);
-		}
-		
+		String pat = "aBc";
+		String pat2 = pat.toLowerCase();
+		System.out.println(myString.contains(pat2) == true ? 1 : 0);
+		int answer = myString.contains(pat2) == true ? 1 : 0;
 		
 	}
 }

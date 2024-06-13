@@ -25,23 +25,31 @@
 	
 		$("#id").css("border","1px solid blue");
 		
-		
-		
 		// class row 인 요소를 찾아
 		// 초록색 점선으로 표시
 		// Method Chainning방식
 		// cf)java=> jtf_name.getText().trim();
-		/* $(".row").css("border","1px dotted green")
-				 .css("background","black")
-		         .css("color","white"); */ 
+		 $(".row").css("border","1px dotted green")
+		 $(".row").css("background", "black");
+		 $(".row").css("color", "white");
+				 //.css("background","black")
+		         //.css("color","white");
 		
 		//기 선언된 CSS를 적용
-		$(".row").addClass("title");
-		         
-		         
-		$("input[type='submit']").css("border","1px solid blue");
+		// CSS에서 .title {} 선언된 내용 적용
+		//$(".row").addClass("title");
 		
+		// 제거
+		$(".row").removeClass("title");
+		         
+		// Attribute Selector []안에 있는 것은 속성을 나타낸다 href 같은..
+		$("input[type='submit']").css("border","1px solid blue");
+		$("input[value='RESET']").css("border","1px solid red");
+		
+		// Element Selector
 		$("table").css("border","2px solid blue");
+		
+		$("td:last").hide();
 	});
 </script>
 </head>

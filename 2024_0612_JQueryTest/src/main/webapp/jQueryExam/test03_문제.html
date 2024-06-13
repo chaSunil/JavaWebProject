@@ -13,6 +13,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script type="text/javascript">
 
+	// 정수 1~3자리 / 소숫점이 없을수도 있음 : (\.[0.9]{1,2})? <= ?(0 or 1개)
 	const regular_number = /^[0-9]{2,3}(\.[0-9]{1,2})?$/;
 	const regular_number2 = /^[0-9]{1,2}(\.[0-9]{1,2})?$/;
 	
@@ -44,11 +45,11 @@
 		if(result < 18.4) {
 			BMI = "저체중";
 			bmiColor.style.cssText = "color:blue; font-weight:bold";
-			bmiColor2.style.cssText = "color:blue; font-weight:bold";
+			$("#bmi").css("color","blue");
 		} else if(18.4 <= result && result < 23) {
 			BMI = "정상";
 			bmiColor.style.cssText = "color:green; font-weight:bold";
-			bmiColor2.style.cssText = "color:green; font-weight:bold";
+			$("#bmi").css("color","green");
 		} else if(23 <= result && result < 25) {
 			BMI = "과체중";
 			bmiColor.style.cssText = "color:orange; font-weight:bold";
@@ -64,6 +65,7 @@
 		}
 		
 		$("#bmi").html(result);
+		// $("#bmi").html()
 		$("#status").html(BMI);
 		
 	}

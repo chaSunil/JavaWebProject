@@ -15,10 +15,12 @@
 		// ^=   ~로 시작하는 
 		// $=   해당값으로 끝나는 요소
 		// *=   해당문자를 포함하는 요소
-		$("div[id*='tent']").css("background","blue");
-
-		$("div[id$='1']").css("background","red");
 		
+		// id중에 tent가 포함하는 요소
+		$("div[id*='tent']").css("background","blue");
+		// id중에 1로 끝나는 요소
+		$("div[id$='1']").css("background","red");
+		// id중에 v로 시작하는 요소
 		$("div[id^='v']").css("background","yellow");
 	});
 </script>
