@@ -9,6 +9,17 @@
 	padding: 0px;
 }
 
+#quickmenu img {
+	width: 150px;
+	position: absolute;
+	right: 1px;
+	top: 20px;
+	
+	display: inline-block;
+	
+	z-index: 1;
+}
+
 #head #rogo {
 	width: 250px;
 }
@@ -106,7 +117,22 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		// 1초에 한번씩 함수 수행 
-		setInterval(moveImage, 3000);// cf) setTimeout(fn,시간);
+		setInterval(moveImage, 4000);// cf) setTimeout(fn,시간);
+		// quickmenu의 이미지의 top 위치가 얼마인지 담기
+		var top = parseInt($("#quickmenu img").css("top"));
+		console.log(top);
+		
+		// 스크롤 되어질때 quickmenu의 속성값도 이동하게 설정
+		$(window).scroll(function(){
+			var scrollTop = $(window).scrollTop();
+			console.log("scrollTop : " + scrollTop);
+			var quickTop = top + scrollTop;
+			
+			$("#quickmenu img").animate({top:quickTop},20);
+			
+		});
+	
+	
 	});
 
 	function moveImage() {
@@ -126,6 +152,10 @@
 
 
 <body>
+
+	<div id="quickmenu">
+		<img src="image/scroll.png">			
+	</div>
 
 	<div id="head">
 		<img id="rogo" src="image/kkubipay.png">
