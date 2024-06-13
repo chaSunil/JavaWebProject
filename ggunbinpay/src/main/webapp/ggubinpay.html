@@ -4,10 +4,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
+@font-face {
+    font-family: 'TTTogether';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/TTTogetherA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
 }
+
 
 #quickmenu img {
 	width: 150px;
@@ -18,6 +27,36 @@
 	display: inline-block;
 	
 	z-index: 1;
+}
+
+.container {
+	margin-top: 50px;
+}
+
+.btn {
+  flex: 1 1 auto;
+  margin: 10px;
+  padding: 30px;
+  
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "TTTogether";
+  
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+ }
+ 
+.btn:hover {
+  	background-position: right center; /* change the direction of the change here */
+}
+
+.btn-5 {
+	height: 30px;
+	background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
 }
 
 #head #rogo {
@@ -60,6 +99,9 @@ li.mainmenu ul {
 	color: white;
 	text-decoration: none;
 	text-align: center;
+	text-shadow: 1px 1px gray;
+	
+	font-family: "TTTogether";
 	padding: 10px;
 	border-bottom: 1px solid #ffffff;
 }
@@ -111,6 +153,11 @@ ul#drowdownmenu li a:hover {
 #center {
 	margin-top: 20px;
 	text-align: center;
+}
+
+#center-sub {
+	margin-top: 30px;
+	margin-bottom: 50px;
 }
 
 #mainbanner {
@@ -183,7 +230,16 @@ ul#drowdownmenu li a:hover {
 <body>
 	<!-- 따라오는 메인 스크롤 배너 -->
 	<div id="quickmenu">
-		<img src="image/scroll.png">			
+		<a href="https://smhrd.or.kr/" target="_blank">
+		<img src="image/scroll.png">	
+		</a>		
+	</div>
+	<!-- 회원가입 로그인 버튼 -->
+	<div class="container">
+	  <a class="btn btn-5">회원가입</a>
+	  <a class="btn btn-5">로그인</a>
+	</div>
+			
 	</div>
 	<!-- 상단 메인 로고 -->
 	<div id="head">
@@ -230,7 +286,7 @@ ul#drowdownmenu li a:hover {
 			</ul>
 		</li>		
 		<li class="mainmenu">
-			<a href="#">고객문의</a>
+			<a href="#">게시판</a>
 			<ul>
 				<li><a href="#">문화상품권</a></li>
 				<li><a href="#">구글기프트카드</a></li>
@@ -238,7 +294,7 @@ ul#drowdownmenu li a:hover {
 			</ul>
 		</li>		
 		<li class="mainmenu">
-			<a href="#">고객문의</a>
+			<a href="#">공지사항</a>
 			<ul>
 				<li><a href="#">문화상품권</a></li>
 				<li><a href="#">구글기프트카드</a></li>
@@ -283,6 +339,11 @@ ul#drowdownmenu li a:hover {
 	<div id="center">
 		<div id="center-sub">
 			<img src="image/shop1.png">
+		</div>
+		<div>
+		<a href="https://smhrd.or.kr/" target="_blank">
+			<img id="center-product-menu" src="image/productmenu.jpg">
+		</a>
 		</div>
 		<div>
 			<img id="mainbanner" src="image/mainbanner.png">
