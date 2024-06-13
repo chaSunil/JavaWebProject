@@ -35,6 +35,40 @@
 	margin-bottom: 25px;
 }
 
+#drowdownmenu {
+	width: 100%;
+	
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+li.mainmenu {
+	float: left;
+	list-style-type: none;
+}
+
+li.mainmenu ul {
+	margin: 0px;
+	list-style-type: none;
+	padding: 0px;
+}
+
+.mainmenu a {
+	background: #FECCBE;
+	display: block;
+	
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 10px;
+	border-bottom: 1px solid #ffffff;
+}
+
+ul#drowdownmenu li a:hover {
+	background-color: white;
+	color: #FECCBE;
+}
+
 #posterBox {
 	margin-top: 30px;
 }
@@ -74,40 +108,29 @@
 	height: 300px;
 }
 
-#main {
-	width: 1500px;
-	height: 2000px;
-	
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#main #mainbanner {
-	margin-top: 100px;
-	width: 500px;
-}
-
-#box3 {
-	width: 1500px;
-
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#main-sub {
-	padding-top: 25px;
+#center {
+	margin-top: 20px;
 	text-align: center;
 }
-#main-sub h2 {
-	margin-top: 100px;
-	margin-bottom: 50px;
+
+#mainbanner {
+	margin: 100px;
+	width: 800px;
 }
-#box3 ul li {
-	list-style-type: none;
-	float: left;
-	padding: 15px;
+
+.box3 {
+	width: 1500px;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 	
-	margin-bottom: 70px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.box3 img {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
@@ -131,8 +154,14 @@
 			$("#quickmenu img").animate({top:quickTop},20);
 			
 		});
-	
-	
+		// 상단 메인 메뉴 관리
+		$("li.mainmenu ul").hide(); // 하위메뉴 숨기기
+		$("li.mainmenu").hover(function(){
+			$("ul",this).show(300);
+		}, function(){
+			$("ul",this).hide(300);
+		});
+		
 	});
 
 	function moveImage() {
@@ -152,11 +181,11 @@
 
 
 <body>
-
+	<!-- 따라오는 메인 스크롤 배너 -->
 	<div id="quickmenu">
 		<img src="image/scroll.png">			
 	</div>
-
+	<!-- 상단 메인 로고 -->
 	<div id="head">
 		<img id="rogo" src="image/kkubipay.png">
 		<div>
@@ -166,78 +195,110 @@
 
 <div style="clear: both; position: relative; border: 1px solid pink;"></div>
 
-		<div id="posterBox">
-			<div id="box1">
-				<div id="box2">
-					<ul>
-						<li>
-							<img src="image/banner1.jpg" />
-						</li>
-						<li>
-							<img src="image/banner2.jpg" />
-						</li>
-						<li>
-							<img src="image/banner3.jpg" />
-						</li>
-						
-						
-						
-						<li>
-							<img src="image/banner1.jpg" />
-						</li>
-						<li>
-							<img src="image/banner2.jpg" />
-						</li>
-						<li>
-							<img src="image/banner3.jpg" />
-						</li>
-						
-
-					</ul>
-				</div>
-			</div>
-		</div>
-		
-	<div id="main">
-		<div id="main-sub">
-			<div>
-			<img src="image/shop1.png">
-			</div>
-			<img id="mainbanner" src="image/mainbanner.png">
-				<div id="box3">
-					<ul>
-						<li>
-							<img src="image/nexoncash.jpg" />
-						</li>
-						<li>
-							<img src="image/nexoncash.jpg" />
-						</li>
-						<li>
-							<img src="image/nexoncash.jpg" />
-						</li>
-						<li>
-							<img src="image/nexoncash.jpg" />
-						</li>
-
-					</ul>
+	<!-- 상단메인메뉴 클래스 -->
+	<ul id="drowdownmenu">
+		<li class="mainmenu">
+			<a href="#">게임캐쉬</a>
+			<ul>
+				<li><a href="#">넥슨카드</a></li>
+				<li><a href="#">틴캐시</a></li>
+				<li><a href="#">와우캐시</a></li>
+			</ul>
+		</li>	
+		<li class="mainmenu">
+			<a href="#">상품권</a>
+			<ul>
+				<li><a href="#">문화상품권</a></li>
+				<li><a href="#">구글기프트카드</a></li>
+				<li><a href="#">해피머니</a></li>
+			</ul>
+		</li>		
+		<li class="mainmenu">
+			<a href="#">이벤트</a>
+			<ul>
+				<li><a href="#">문화상품권</a></li>
+				<li><a href="#">구글기프트카드</a></li>
+				<li><a href="#">해피머니</a></li>
+			</ul>
+		</li>		
+		<li class="mainmenu">
+			<a href="#">고객문의</a>
+			<ul>
+				<li><a href="#">문화상품권</a></li>
+				<li><a href="#">구글기프트카드</a></li>
+				<li><a href="#">해피머니</a></li>
+			</ul>
+		</li>		
+		<li class="mainmenu">
+			<a href="#">고객문의</a>
+			<ul>
+				<li><a href="#">문화상품권</a></li>
+				<li><a href="#">구글기프트카드</a></li>
+				<li><a href="#">해피머니</a></li>
+			</ul>
+		</li>		
+		<li class="mainmenu">
+			<a href="#">고객문의</a>
+			<ul>
+				<li><a href="#">문화상품권</a></li>
+				<li><a href="#">구글기프트카드</a></li>
+				<li><a href="#">해피머니</a></li>
+			</ul>
+		</li>		
+	</ul>
+	
+	<!-- 메인배너 박스 -->
+	<div id="posterBox">
+		<div id="box1">
+			<div id="box2">
+				<ul>
+					<li>
+						<img src="image/banner1.jpg" />
+					</li>
+					<li>
+						<img src="image/banner2.jpg" />
+					</li>
+					<li>
+						<img src="image/banner3.jpg" />
+					</li>
 					
-					<ul>
-						<li>
-							<img src="image/nexoncash.jpg" />
-						</li>
-						<li>
-							<img src="image/nexoncash.jpg" />
-						</li>
-						<li>
-							<img src="image/nexoncash.jpg" />
-						</li>
-						<li>
-							<img src="image/nexoncash.jpg" />
-						</li>
-
-					</ul>
-				</div>
+					
+					
+					<li>
+						<img src="image/banner1.jpg" />
+					</li>
+					<li>
+						<img src="image/banner2.jpg" />
+					</li>
+					<li>
+						<img src="image/banner3.jpg" />
+					</li>
+					
+	
+				</ul>
+			</div>
 		</div>
 	</div>
+		
+	<div id="center">
+		<div id="center-sub">
+			<img src="image/shop1.png">
+		</div>
+		<div>
+			<img id="mainbanner" src="image/mainbanner.png">
+		</div>
+	</div>
+	
+	
+		<div class="box3">
+					<img src="image/nexoncash.jpg" />
+					<img src="image/nexoncash.jpg" />
+					<img src="image/nexoncash.jpg" />
+		</div>
+		<div class="box3">
+					<img src="image/nexoncash.jpg" />
+					<img src="image/nexoncash.jpg" />
+					<img src="image/nexoncash.jpg" />
+		</div>
 </body>
 </html>
