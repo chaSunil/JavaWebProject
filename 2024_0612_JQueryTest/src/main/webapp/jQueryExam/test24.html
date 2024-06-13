@@ -31,7 +31,7 @@
 		border: 4px solid #aaaaaa;
 		overflow:hidden;   /* 자신영역이 
 		부모영역보다 크면 오버된 영역 감추기 */
-		position: relative;
+		position: relative; /* 자식요소가 absolute로 지정시 relative가 기준이된다 */
 	}
 	
 	
@@ -42,7 +42,7 @@
 		margin: 0px;
 		padding: 0px;
 		position: absolute;/* 부모(box1)를 기준으로 절대좌표  */
-		left:0px;
+		left:0px; /* 100px로 해놓으면 부모 좌표로부터 100이 떨어진 상태에서 움직인다. */
 	}
 	
 	
@@ -67,17 +67,17 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		// 1초에 한번씩 함수 수행 
-		setInterval( moveImage , 500);// cf) setTimeout(fn,시간);
+		setInterval( moveImage , 1200);// cf) setTimeout(fn,시간);
 	});
 	
 	function moveImage(){
 		$("#box2").animate(
-			{"left":"-=10"},500, function(){
+			{"left":"-=115"},1000, function(){
 				// 현재 left속성값 얻기
 				var left = 
 				parseInt($("#box2").css("left"));
 					console.log(left);
-					if(left<-1000){
+					if(left<-805){
 						// 오른쪽에서 다시 나오게 하기 
 						$("#box2").css("left","0px");
 					}

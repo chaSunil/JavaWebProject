@@ -37,9 +37,11 @@
 		
 		$("li.mainmenu ul").hide(); //하위메뉴 숨기기
 		
-		
+		//                     올라갔을 때  내려갔을 때
+		//$(".mainmenu").hover(function(){},function(){});
 		$("li.mainmenu").hover(function(){
 			// 자신의 자식요소중에 ul요소 화면에 보이기
+			// %("child",parent).show(1)
 			$("ul",this).show(1);
 			//$("ul",this).slideDown(500);
 			//$("ul",this).fadeIn(1000);

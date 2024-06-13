@@ -45,7 +45,7 @@
 			// 해당 span에 아이디를 입력하세요 
 			//라믄 문구 추가 
 			if($("#userId:text").val()==""){
-				// id를 빼고 실행하면 
+				// id를 빼고 실행하면: span -> html() or text()
 				if($("#idValid").text()==""){//경고메시지가 비어있으면
 					$("#idValid").html("아이디를 입력하세요").addClass("warning");
 				//.append("아이디를 입력하세요")
@@ -91,7 +91,7 @@
 			
 			
 			if($("#pwd:password").val() 
-				!=	$("#repwd:password").val() ){
+				!=	$("#repwd").val() ){
 				alert("암호가 일치하지 않습니다.")
 				return false;
 			}

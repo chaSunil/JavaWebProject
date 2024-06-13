@@ -22,13 +22,13 @@
 		$("li > div").css("border","2px solid red");
 		
 		$(".movie").css("padding","20px");
-		$(".movie").css("margin","20px");
+		$(".movie").css("margin","50px");
 		// div 요소를 클릭 : 메세지 출력
 		$(".movie").click(function(){
 			//               0 base child index
 			//var msg =$(this).children().eq(1).html();
 			//자신의 하위요소 검색
-			var msg =$(this).find("p").html();
+			var msg =$(this).find("p").eq(1).html();
 			console.log(msg)
 			alert(msg);
 		});
@@ -43,25 +43,29 @@
 				<div class="movie" id="movie1">
 					<img src="images/movie1.jpg" />
 					<p class="title">토르1: 다크 월드</p>
-					<!-- <p>가격 : 10,000원</p> -->
+					<p>가격 : 10,000원</p>
 				</div>
 			</li>
 			<li>
 				<div class="movie" id="movie2">
 					<img src="images/movie2.jpg" />
 					<p>동창생</p>
+					<p>세일 : 3,000원</p>
 				</div>
 			</li>
 			<li>
 				<div class="movie" id="movie3">
 					<img src="images/movie3.jpg" />
 					<p>그래비티</p>
+					<p>vip 이용 금액 : 1,600,000원</p>
+					<p>순도 100% 황금 카라멜 팝콘 증정</p>
 				</div>
 			</li>
 			<li>
 				<div class="movie" id="movie4">
 					<img src="images/movie4.jpg" />
 					<p>공범</p>
+					<p>4DX : 16,000원</p>
 				</div>
 			</li>
 			<li>

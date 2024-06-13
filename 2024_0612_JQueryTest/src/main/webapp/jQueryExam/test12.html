@@ -8,7 +8,8 @@
 	tr { color: blue; font-weight: bold;}
 	
 	.selectClass { 
-	    background-color: pink;
+		/* 이미 같은 속성이 다른곳에 적용되어있는경우 적용이 안된다. */
+	    background-color: green;
 		font-size: 20pt; 
 		color: red;
 	}
@@ -22,15 +23,17 @@
 	// 버튼을 클릭하면 메세지를 경고창에 띄우기
 	$("document").ready(function(){
 		
+		$("#btn1").click(function(){
+			// 이미 같은 속성이 다른곳에 적용되어있는경우 적용이 안된다.
+			// 위치가 어디에있건..
+			// .selectClass 타입이 적용되려면 적용하려는 속성이 설정되지 않아야 한다.
+			$("tr:first").addClass("selectClass");
+			$("tr:eq(1)").addClass("selectClass");
 		//짝수 index
 		$("tr:even").css("background","pink");
 		//홀수 index
 		$("tr:odd").css("background","yellow");
 		
-		$("#btn1").click(function(){
-			
-			$("tr:first").addClass("selectClass");
-			$("tr:eq(1)").addClass("selectClass");
 			
 		});
 		

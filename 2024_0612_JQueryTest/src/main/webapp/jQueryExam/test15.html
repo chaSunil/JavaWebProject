@@ -44,7 +44,9 @@
 			// 두번째 버튼을 누르면 배경색을 무얼쓸지
 			// 물어보고 이 색을 box1의 배경색으로 사용 
 		});
+		
 		$("#btn2").click(function() {
+			// prompt로 입력을 받는다.
 			var usercolor = prompt("어떤색을쓸래? ","blue");
 			$("#box1").css("background",usercolor);
 		});
@@ -69,6 +71,7 @@
 		// 4번 버튼을 누르면 box1의 클래스를
 		// myClass로 추가시키고 
 		$("#btn4").click(function(){
+		// 4번을 누르기전 box가 있으면 이미 css 속성값이 적용되어 있으면, 적용이 안된다.
 			$("#box1").addClass("myClass");
 		});
 		
@@ -92,6 +95,8 @@
 		function(){ //내려가면
 			$(this).css("border","2px solid yellow");
 		});	
+ 
+ 		// $("img").hover(function(){"border","2px solid red"},function(){"border","2px solid yellow"});
         
         //$('img').hover(올라갔을때함수,내려갔을때함수);
         //$('img').hover(function(){} , function(){});

@@ -57,18 +57,15 @@ img{
 			if(title == undefined)
 				title =$(this).find("p").html();
 			
-			
 			//가격알아보기
-			var price =$(this).children().eq(2).html();
+			// var price =$(this).children().eq(2).html();
+			// parent > child : 자식요소
+			// brother1 + brother2(두번째 p를 선택하다) : 형제요소
+			let price = $(this).fine("p+p").html();
 			
 			alert(title+":" + price);
 			
-			
-			
-			
 		});	         
-			         
-			         
 			         
 	});
 

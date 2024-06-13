@@ -5,9 +5,12 @@
 <title>Insert title here</title>
 <style type="text/css">
 	#box1 {
-		width: 300px;
+		width: 100%;
 		height: 200px;
 		background-color: skyblue;
+		
+		text-align: center;
+		font-size: 75px;
 	}
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -23,6 +26,7 @@
 		});
 		
 		$("input[value='번갈아수행']").click(function(){
+			// toggle 자체에 hide와 show가 들어가 있다.
 			$("#box1").toggle(1000);
 		});
 		
@@ -40,6 +44,7 @@
 		});
 		
 		$("input[value='효과주기']").click(function(){
+			// toggle 자체에 slideUp과 slideDown가 들어가 있다.
 			$("#box1").slideToggle(1000,function(){
 				alert("작업완료");
 			});
@@ -66,11 +71,8 @@
 	<input type="button" value="FadeOut" />
 	
 	<div id="box1">
-		아차 졸다간 내년에 집에서 논다.
+		정환 보드게임즈
 	</div>
+	<div>안녕하세요 우린 보드게임 이미지 갤러리입니다.</div>
 </body>
 </html>
-
-
-
-
