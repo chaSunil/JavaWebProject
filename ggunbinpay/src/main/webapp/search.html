@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+body {
+  background: #9265DC;
+  margin-top: 70px;
+}
+
+
+input[type="search"] {
+  position: absolute;
+  top: 0; 
+  right: 28px;
+  height: 60px;
+  width: 300px;
+  float:left;
+  font-size: 1.5em;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  outline: none;
+  border: none;
+  padding-left: 20px;
+  color: #28d7d7;
+	transition: width 0.5s;
+}
+
+/* form.opened input[type="search"] {
+  width: 300px;
+	transition: width 0.5s;
+} */
+
+/* form.opened button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+} */
+</style>
+
+</head>
+<body>
+<form>
+  <input type="search" placeholder="Search">
+  <button>
+    <span class="fontawesome-search"></span>
+  </button>
+</form>
+</body>
+</html>
