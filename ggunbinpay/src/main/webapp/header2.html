@@ -18,6 +18,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -31,21 +38,43 @@
 	
 	position: absolute;
 	left: 80px;
-	top : 15px;
+	top : 10px;
 }
 
 #head {
 	display: grid;
-	grid-template-columns: 4fr 3.5fr 2fr;
+	grid-template-columns: 5fr 5fr 3.5fr;
 	height: 90px;
 	background-color: white;
 }
 
 #search {
 	margin-top: 30px;
-	width: 300px;
-	input-border-color: #B8E9FF;
+	width: 400px;
 }
+
+#login-main {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+#login-btn a {
+	text-decoration: none;
+	font-family: yg-jalnan;
+	color: #B8E9FF;
+	padding-right: 30px;
+	
+	display: inline;
+}
+
+.login-icon img {
+	width: 20px;
+}
+
+.login-icon {
+	display: inline-block;
+}
+
 
 #main-head {
 	position: sticky;
@@ -70,8 +99,6 @@
 li.mainmenu {
 	float: left;
 	list-style-type: none;
-	
-	margin-top: 8px;
 	
 	position: relative; /* 부모 요소의 위치를 기준으로 자식 요소 위치 설정 */
 	left: 0px;
@@ -162,7 +189,24 @@ $(document).ready(function() {
 				<img id="logo" src="image/logo.png">
 			</a>
 		<div id="search">
-			<input class="form-control input-border-color" placeholder="검색창" $input-border-color: red;/>
+			<input class="form-control" placeholder="검색창"/>
+		</div>
+		<div id="login-main">
+			<div id="login-btn">
+				<a href="header2.html">로그인</a>
+				<a href="header2.html">회원가입</a>
+				<a href="header2.html">고객센터</a>
+			<div class="login-icon">
+				<a href="header2.html">
+					<img src="image/love.png">
+				</a>
+			</div>
+			<div class="login-icon">
+				<a href="header2.html">
+					<img src="image/cart.png">
+				</a>
+			</div>
+			</div>
 		</div>
 	</div>
 
