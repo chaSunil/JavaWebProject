@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#main-box {
+	width: 800px;
+	height: 1300px;
+	
+	margin: auto; /* 중간에 자동 정렬 */
+	
+	/* background: #cccccc; */
+}
+
+#header {
+	width: 100%;
+	height: 400px;
+	
+	/* background-color: #ffcccc; */
+}
+
+#title {
+	text-align: center;
+	margin-top: 10px;
+	
+	font-size: 28px;
+	font-weight: bold;
+	
+	color: white;
+	text-shadow: 1px 1px 5px black;
+}
+
+#aside {
+	width: 20%;
+	height: 400px;
+	
+	float: left;
+}
+
+#aside2 {
+	width: 20%;
+	min-height: 600px;
+	height: auto;
+	float: left;
+}
+
+#content {
+	width: 80%;
+	min-height: 700px;
+	height: auto; /* 내용에 따라 자동 증가 */
+	
+	float: right;
+}
+
+#img-introduce {
+	padding-top: 100px;
+	padding-left: 30px;
+	width: 150px;
+	vertical-align: middle;
+}
+
+#img-introduce2 {
+	width: 100%;
+	vertical-align: middle;
+}
+
+#img-history {
+	width: 100%;
+}
+
+#img-banner {
+	width: 100%;
+}
+
+#img-logo {
+	margin-top: 50px;
+	width: 300px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#img-logo2 {
+	margin-top: 50px;
+	width: 50px;
+	float: right;
+}
+
+#img-logo3 {
+	margin-top: 50px;
+	width: 100px;
+	float: right;
+}
+
+#img-review {
+	width: 100%;
+}
+
+#img-customer {
+	width: 100%;
+}
+
+#img-product {
+	width: 100%;
+}
+
+#footer {
+	width: 100%;
+	height: 100px;
+	
+	background: #0000a0;
+	
+	clear: both;
+}
+
+#footer-content {
+	color: white;
+	padding: 5px;
+	padding-left: 20px;
+	
+	font-size: 16px;
+}
+
+#containner{
+	width: 100%;
+	display: inline-block;
+	top: 50px;
+	left: 100px;
+}
+
+#board{
+	padding-left: 50px;
+	width: 200px;
+    height: 200px;
+    float: left;
+}
+
+
+.parent1:hover #board {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+
+    transition: transform 0.3s;
+}
+
+.parent2:hover #board {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+
+    transition: transform 0.3s;
+}
+
+.parent3:hover #board {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+
+    transition: transform 0.3s;
+}
+

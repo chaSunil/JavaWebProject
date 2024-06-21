@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	const sido_array = ["서울", "경기", "인천", "대구", "대전", "광주"];
+	document.write("sido_array's length : " + sido_array.length + "<br>");
+	
+	for(let i = 0; i < sido_array.length; i++) {
+		document.write(`sido_array[${i}] : ${sido_array[i]} <br>`);
+	}
+	
+	for(let i in sido_array) {
+		document.write(`sido_array[${i}] : ${sido_array[i]} <br>`);
+	}
+	
+	for(let i of sido_array) {
+		document.write(i+"<br>");
+	}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

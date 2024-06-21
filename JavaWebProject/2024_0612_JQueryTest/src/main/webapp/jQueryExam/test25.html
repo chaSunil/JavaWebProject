@@ -63,12 +63,11 @@
 		
 		$("#list ul li").hover(function(){
 			$(".movieinfo").show();
-	        // 마우스 오버된 img의 src속성값얻기 attr = 속성
+	        // 마우스 오버된 img의 src속성값얻기
 			//var src = $(this).find("img").attr("src");
 	        //        this의 자식요소(img)알아낸다. 
-	        // attr을 사용해도 되고, prop("src")로 사용해도 된다.
 	        var src = $("img",this).attr("src");
-			// <img id="img1" width="300" height="400"/>
+			//console.log(src);
 			$("#img1").attr("src",src);
 		},function(){
 			$(".movieinfo").hide();
