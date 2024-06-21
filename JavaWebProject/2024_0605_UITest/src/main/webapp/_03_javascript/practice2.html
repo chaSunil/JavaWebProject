@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+		
+	
+	<style type= "text/css">
+	
+		* {
+			font-size: 0px;
+		}
+		
+		span {
+			display: inline-block;
+			width: 60px;
+			height: 70px;
+			text-align: center;
+			font-size: 48px;
+			
+			background: black;
+			color: white;
+		}
+		
+		.colon {
+			width: 30px;
+		}
+		
+		#ampm {
+			width: 130px;
+			color: yellow;
+		}
+	
+	</style>
+	
+	<script type="text/javascript">
+	
+		let timer = null;
+		
+		// Browser에 모든 요소(Element)가 배치가 완료되면 호출하는 이벤트
+		window.onload = function() {
+			document.getElementById("minute").innerHTML = 12;
+			document.getElementById("second").innerHTML = 12;
+			
+			setTimeout(display_time,0);
+			timer = setInterval(display_time,250);
+		};
+		
+		function display_time() {
+			
+			const now = new Date();
+			let hour = now.getHours();
+			let minute = now.getMinutes();
+			let second = now.getSeconds();
+			
+			if(hour>12) {
+				hour = hour % 12;
+			}
+			document.getElementById("hour").innerHTML = (hour<10) ? "0" + hour : hour;
+			
+			document.getElementById("minute").innerHTML = (minute<10) ? "0" + minute : minute;
+			document.getElementById("second").innerHTML = (second<10) ? "0" + second : second;
+		}
+		
+	</script>
+	
+</head>
+<body>
+
+	<div id = "backgroundimage">
+		<div id="go">
+			<span id="ampm">오전</span>
+			<span id="hour">14</span>
+			<span class="colon">:</span>
+			<span id="minute">40</span>
+			<span class="colon">:</span>
+			<span id="second">30</span>
+		</div>
+	</div>
+
+</body>
+</html>

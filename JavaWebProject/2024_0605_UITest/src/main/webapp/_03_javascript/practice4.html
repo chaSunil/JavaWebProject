@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const p = { "name" : "홍길동", "age":"20", "married":false };
+		
+		document.write("p's name : " + p.name + "<br>");
+		
+		let key = "age";
+		let key2 = "married";
+		document.write("p's name : " + p["name"] + "<br>");
+		document.write(`p's ${key2} : ${p[key2]} <br>`);
+		document.write(`p's ${key} : ${p[key]} <br>`);
+		
+		const p1 = {
+				"name":{
+					"fullName":"홍길동",
+					"familyName":"홍",
+					"givenName":"길동"
+				},
+				"hobby":["운동","낚시","보드게임"],
+				"tel": {
+					"cellPhone":"010-1234-1234",
+					"homePhone":"02-1234-1234"
+				}
+		};
+		
+		document.write("p1's name : " + p1.name.fullName + "<br>");
+		
+		document.write(`p1's hobby : ${p1.hobby}`)
+		
+		for(let o of p1.hobby) {
+			document.write(`취미는 ${p1.hobby} <br>`)
+		}
+	</script>
+
+</body>
+</html>

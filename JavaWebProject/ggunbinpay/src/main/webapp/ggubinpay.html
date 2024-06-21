@@ -31,9 +31,6 @@
 
 #closeButton {
 	position: absolute;
-	bottom: 7px;
-	right: 5px;
-	background-color: transparent;
 }
 
 .container {
@@ -86,29 +83,17 @@
 	
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-	position: relative; /* 부모 요소의 위치를 기준으로 자식 요소 위치 설정 */
-    z-index: 2;
 }
 
 li.mainmenu {
 	float: left;
 	list-style-type: none;
-	position: relative; /* 부모 요소의 위치를 기준으로 자식 요소 위치 설정 */
-
 }
 
 li.mainmenu ul {
 	margin: 0px;
 	list-style-type: none;
 	padding: 0px;
-	position: absolute;
-	
-	top: 100%; /* 부모 요소 바로 아래에 위치 */
-    left: 0; /* 부모 요소와 같은 왼쪽 위치 */
-    display: none; /* 처음에 숨기기 */
-    
-    width: 100%; 
-    box-sizing: border-box; 
 }
 
 .mainmenu a {
@@ -223,9 +208,9 @@ ul#drowdownmenu li a:hover {
 		// 상단 메인 메뉴 관리
 		$("li.mainmenu ul").hide(); // 하위메뉴 숨기기
 		$("li.mainmenu").hover(function(){
-			$("ul",this).slideDown(300);
+			$("ul",this).show(300);
 		}, function(){
-			$("ul",this).slideUp(300);
+			$("ul",this).hide(300);
 		});
 		
 	});
@@ -236,7 +221,7 @@ ul#drowdownmenu li a:hover {
 			function() {
 				var left = parseInt($("#box2").css("left"));
 				// box2의 left 좌표가 -805보다 작아진다면, 0px로 돌아온다.
-				if (left < -2401) {
+				if (left < -2400) {
 					$("#box2").css("left", "0px");
 			}
 		});
@@ -249,7 +234,8 @@ ul#drowdownmenu li a:hover {
 <body>
 	<!-- 따라오는 메인 스크롤 배너 -->
 	<div id="quickmenu">
-		<a href="javascript:void(0)" id="closeButton">X</a>
+	<!-- 따라오는 배너 X 없애기 버튼 -->
+	<a href="javascript:void(0)" id="closeButton">X</a>
 		<a href="https://smhrd.or.kr/" target="_blank">
 		<img src="image/scroll.png">	
 		</a>		
@@ -362,7 +348,7 @@ ul#drowdownmenu li a:hover {
 		</div>
 		<div>
 		<a href="https://smhrd.or.kr/" target="_blank">
-			<img id="center-product-menu" src="image/productmenu.JPG">
+			<img id="center-product-menu" src="image/productmenu.jpg">
 		</a>
 		</div>
 		<div>
