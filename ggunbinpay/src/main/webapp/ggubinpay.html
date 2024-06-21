@@ -86,17 +86,29 @@
 	
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	position: relative; /* 부모 요소의 위치를 기준으로 자식 요소 위치 설정 */
+    z-index: 2;
 }
 
 li.mainmenu {
 	float: left;
 	list-style-type: none;
+	position: relative; /* 부모 요소의 위치를 기준으로 자식 요소 위치 설정 */
+
 }
 
 li.mainmenu ul {
 	margin: 0px;
 	list-style-type: none;
 	padding: 0px;
+	position: absolute;
+	
+	top: 100%; /* 부모 요소 바로 아래에 위치 */
+    left: 0; /* 부모 요소와 같은 왼쪽 위치 */
+    display: none; /* 처음에 숨기기 */
+    
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 .mainmenu a {
@@ -211,9 +223,9 @@ ul#drowdownmenu li a:hover {
 		// 상단 메인 메뉴 관리
 		$("li.mainmenu ul").hide(); // 하위메뉴 숨기기
 		$("li.mainmenu").hover(function(){
-			$("ul",this).show(300);
+			$("ul",this).slideDown(300);
 		}, function(){
-			$("ul",this).hide(300);
+			$("ul",this).slideUp(300);
 		});
 		
 	});
