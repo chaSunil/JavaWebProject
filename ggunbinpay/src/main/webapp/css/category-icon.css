@@ -36,6 +36,7 @@ body {
 .category-icon {
 	max-width: 1200px;
 	margin: auto;
+	margin-top: 50px;
 }
 
 .category-icon ul {
@@ -51,7 +52,10 @@ body {
 }
 
 .category-icon ul li p {
+	margin-top: 15px;
 	text-align: center;
+	font-weight: bold;
+	font-size: 17px;
 }
 
 a {
