@@ -2,255 +2,502 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="icon" href="image/favicon.ico" type="image/x-icon">
+<title>우리들의 보드게임 세상 보드밍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
-<title>보드게임 세상</title>
-
-<style type="text/css">
-
-@font-face {
-    font-family: 'TTTogether';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/TTTogetherA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-* {
-	margin: 0px;
-	padding: 0px;
-}
-
-/* header css !! */
-
-/* 헤드라인 */
-#head #logo {
-	width: 200px;
-	
-	position: absolute;
-	left: 80px;
-	top : 15px;
-}
-
-#head {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	height: 90px;
-	background-color: white;
-	
-}
-
-#main-head {
-	position: sticky;
-	
-	top: 0px;
-	height: auto;
-	
-	z-index: 2;
-}
-
-/* 상단 메뉴바 */
-#drowdownmenu {
-	width: 100%;
-	
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-	position: relative; /* 부모 요소의 위치를 기준으로 자식 요소 위치 설정 */
-}
-
-li.mainmenu {
-	float: left;
-	list-style-type: none;
-	position: relative; /* 부모 요소의 위치를 기준으로 자식 요소 위치 설정 */
-	left: 0px;
-	width: 100%;
-}
-
-li.mainmenu ul {
-	margin: 0px;
-	list-style-type: none;
-	padding: 0px;
-	position: absolute; /* 부모 요소를 기준으로 절대 위치 설정 */
-	width: 100%;
-}
-
-.mainmenu a {
-	background-color: white;
-	display: block;
-	
-	color: white;
-	text-decoration: none;
-	text-align: center;
-	text-shadow: 1px 1px gray;
-	
-	font-family: "TTTogether";
-	padding: 10px;
-	border-bottom: 1px solid #ffffff;
-	width: 100%;
-	
-	box-sizing: border-box; 
-}
-
-ul#drowdownmenu li a:hover {
-	background-color: white;
-	color: #FECCBE;
-}
-
-#imsi {
-	height: 5000px;
-	width: 100%;
-}
-
-/* 상단메인배너 end */
-
-/* header css !! end */
-
-</style>
-
+  <link rel="stylesheet" href="css/main3css.css">
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<!-- slick  -->
+<script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <script type="text/javascript">
-
 $(document).ready(function() {
-/* 	// 1초에 한번씩 함수 수행 
-	setInterval(moveImage, 4000);// cf) setTimeout(fn,시간); */
-	// quickmenu의 이미지의 top 위치가 얼마인지 담기
-	var top = parseInt($("#quickmenu img").css("top"));
-	console.log(top);
+	/*  // 1초에 한번씩 함수 수행 
+	    setInterval(moveImage, 4000);// cf) setTimeout(fn,시간); */
+	    // quickmenu의 이미지의 top 위치가 얼마인지 담기
+	    var top = parseInt($("#quickmenu img").css("top"));
+	    console.log(top);
+	    
+	    // 상단 메인 메뉴 관리
+	    $("li.mainmenu ul").hide(); // 하위메뉴 숨기기
+	    $("li.mainmenu").hover(function(){
+	        $("ul",this).slideDown(300);
+	    }, function(){
+	        $("ul",this).slideUp(300);
+	    });
+	    
+		// 카테고리 박스 함수
+	    $("li#header-category ul").hide(); // 하위메뉴 숨기기
+	   
+	   $("li#header-category").hover(function(){
+	       $("ul",this).show(0);
+	   }, function(){
+	       $("ul",this).hide(0);
+	   }); 
+	});
+	// 상단 메인 배너 함수
+	/* function moveImage() {
+	    $("#box2").animate(
+	        {"left" : "-=1200"}, 1200, 
+	        function() {
+	            var left = parseInt($("#box2").css("left"));
+	            // box2의 left 좌표가 -805보다 작아진다면, 0px로 돌아온다.
+	            if (left < -2401) {
+	                $("#box2").css("left", "0px");
+	        }
+	    });
+	} */
 	
-	// 상단 메인 메뉴 관리
-	$("li.mainmenu ul").hide(); // 하위메뉴 숨기기
-	$("li.mainmenu").hover(function(){
-		$("ul",this).slideDown(300);
-	}, function(){
-		$("ul",this).slideUp(300);
+	/* 이미지 슬라이드 */
+	$(function() {
+		$('.image_slide').slick({
+			infinite : true, 		/* 무한 스와이프 */
+			slidesToShow : 4, 		/* 한 화면에 보이는 슬라이드 갯수 */
+			slidesToScroll : 1, 	/* 한 번에 슬라이드 되는 갯수 */
+			dots: true,
+			prevArrow:$('.prevArrow'),
+			nextArrow:$('.nextArrow')
+		});
 	});
-});
 
-// 상단 메인 배너 함수
-/* function moveImage() {
-	$("#box2").animate(
-		{"left" : "-=1200"}, 1200, 
-		function() {
-			var left = parseInt($("#box2").css("left"));
-			// box2의 left 좌표가 -805보다 작아진다면, 0px로 돌아온다.
-			if (left < -2401) {
-				$("#box2").css("left", "0px");
-		}
+	$(function() {
+		$('.image_slide2').slick({
+			infinite : true, 		/* 무한 스와이프 */
+			slidesToShow : 4, 		/* 한 화면에 보이는 슬라이드 갯수 */
+			slidesToScroll : 1, 	/* 한 번에 슬라이드 되는 갯수 */
+			dots: true,
+			prevArrow:$('.prevArrow2'),
+			nextArrow:$('.nextArrow2')
+		});
 	});
-} */
-
-</script>
-
-</head>
-<body>
-
-<div id="main-head">
-	<div id="head">
-		<a href="header2.html">
-			<img id="logo" src="image/logo.png">
-		</a>
-		<div>
-			<input type="search" placeholder="Search">
-			<button>
-			<span class="fontawesome-search"></span>
-			</button>
+	</script>
+	</head>
+	<body>
+	<div id="main-head">
+	    <!-- 상단 헤더 -->
+	    <div id="head">
+	            <a href="header2.html">
+	                <img id="logo" src="image/logo.png">
+	            </a>
+	        <div id="search">
+	            <input class="form-control search" placeholder="🔍검색창🔎">
+	        </div>
+	        <div id="login-main">
+	            <div id="login-btn">
+	                <a href="login.html">로그인</a>
+	                <a href="member_register.html">회원가입</a>
+	                <a href="header2.html">고객센터</a>
+	            <div class="login-icon">
+	                <a href="header2.html">
+	                    <img src="image/love.png">
+	                </a>
+	            </div>
+	            <div class="login-icon">
+	                <a href="header2.html">
+	                    <img src="image/cart.png">
+	                </a>
+	            </div>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- 상단 헤더 end -->
+	    
+	    <!-- 헤더 탭 코드-->	
+		<div id="header-tap">
+			<ul id="header-tap-list">
+				<li id="header-category" class="">
+					<img id="tab-img" src="image/side-menu.png">
+					<ul>
+							<li class="cate-box"><a href="#">가족게임</a> <hr></li>
+							<li class="cate-box"><a href="#">어린이게임</a><hr></li>
+							<li class="cate-box"><a href="#">워게임</a><hr></li>
+							<li class="cate-box"><a href="#">전략게임</a><hr></li>
+							<li class="cate-box"><a href="#">추상게임</a><hr></li>
+							<li class="cate-box"><a href="#">컬렉터블 게임</a><hr></li>
+							<li class="cate-box"><a href="#">테마게임</a><hr></li>
+							<li class="cate-box"><a href="#">파티게임</a><hr></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">신상품</a>
+				</li>
+				<li>
+					<a href="#">베스트</a>
+				</li>
+				<li>
+					<a href="#">세트상품</a>
+				</li>
+				<li>
+					<a href="#">기획전</a>
+				</li>
+				<li>
+					<a href="#">이벤트</a>
+				</li>
+				
+			</ul>
+		
 		</div>
-	</div>
-
-	<!-- 상단메인메뉴 클래스 -->
-	<ul id="drowdownmenu">
-		<li class="mainmenu">
-			<a href="#">게임캐쉬</a>
-			<ul>
-				<li><a href="#">넥슨카드</a></li>
-				<li><a href="#">틴캐시</a></li>
-				<li><a href="#">와우캐시</a></li>
-			</ul>
-		</li>	
-		<li class="mainmenu">
-			<a href="#">상품권</a>
-			<ul>
-				<li><a href="#">문화상품권</a></li>
-				<li><a href="#">구글기프트카드</a></li>
-				<li><a href="#">해피머니</a></li>
-			</ul>
-		</li>		
-		<li class="mainmenu">
-			<a href="#">이벤트</a>
-			<ul>
-				<li><a href="#">문화상품권</a></li>
-				<li><a href="#">구글기프트카드</a></li>
-				<li><a href="#">해피머니</a></li>
-			</ul>
-		</li>		
-		<li class="mainmenu">
-			<a href="#">고객문의</a>
-			<ul>
-				<li><a href="#">문화상품권</a></li>
-				<li><a href="#">구글기프트카드</a></li>
-				<li><a href="#">해피머니</a></li>
-			</ul>
-		</li>		
-		<li class="mainmenu">
-			<a href="#">게시판</a>
-			<ul>
-				<li><a href="#">문화상품권</a></li>
-				<li><a href="#">구글기프트카드</a></li>
-				<li><a href="#">해피머니</a></li>
-			</ul>
-		</li>		
-		<li class="mainmenu">
-			<a href="#">공지사항</a>
-			<ul>
-				<li><a href="#">문화상품권</a></li>
-				<li><a href="#">구글기프트카드</a></li>
-				<li><a href="#">해피머니</a></li>
-			</ul>
-		</li>		
-	</ul>
+	</div> <!-- end - header - 정환 -->
+<!-- 헤더 메인 메뉴 end -->
+    <!-- 상단 슬라이딩 배너 -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0"
+                class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+        </div>
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="image/product_banner1.jpg" alt="Los Angeles"
+                    class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="image/product_banner2.jpg" alt="Chicago"
+                    class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="image/product_banner3.jpg" alt="New York"
+                    class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="image/product_banner4.jpg" alt="New York"
+                    class="d-block w-100">
+            </div>
+        </div>
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button"
+            data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button"
+            data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <!-- 상단 슬라이딩 배너 end -->
+    
+    
+    <!-- 배너 아래 카테고리 아이콘 -->
+    <section class="category-icon">
+        <ul>
+            <li>
+                <a href=header2.html">
+                    <div class="a-1">
+                        <img src="image/003.png" alt="" class="a1-a">
+                        <img src="image/004.png" alt="" class="a1-b">
+                    </div>
+                    <p>베스트</p>
+                </a>
+            </li>
+            <li>
+                <a href=header2.html">
+                    <div class="a-1">
+                        <img src="image/001.png" alt="" class="a1-a">
+                        <img src="image/002.png" alt="" class="a1-b">
+                    </div>
+                    <p>가족게임</p>
+                </a>
+            </li>
+            <li>
+                <a href=header2.html">
+                    <div class="a-1">
+                        <img src="image/005.png" alt="" class="a1-a">
+                        <img src="image/006.png" alt="" class="a1-b">
+                    </div>
+                    <p>어린이게임</p>
+                </a>
+            </li>
+            <li>
+                <a href=header2.html">
+                    <div class="a-1">
+                        <img src="image/007.png" alt="" class="a1-a">
+                        <img src="image/008.png" alt="" class="a1-b">
+                    </div>
+                    <p>전략게임</p>
+                </a>
+            </li>
+            <li>
+                <a href=header2.html">
+                    <div class="a-1">
+                        <img src="image/009.png" alt="" class="a1-a">
+                        <img src="image/010.png" alt="" class="a1-b">
+                    </div>
+                    <p>추상게임</p>
+                </a>
+            </li>
+            <li>
+                <a href=header2.html">
+                    <div class="a-1">
+                        <img src="image/011.png" alt="" class="a1-a">
+                        <img src="image/012.png" alt="" class="a1-b">
+                    </div>
+                    <p>워게임</p>
+                </a>
+            </li>
+            <li>
+                <a href=header2.html">
+                    <div class="a-1">
+                        <img src="image/013.png" alt="" class="a1-a">
+                        <img src="image/014.png" alt="" class="a1-b">
+                    </div>
+                    <p>파티게임</p>
+                </a>
+            </li>
+            <li>
+                <a href=header2.html">
+                    <div class="a-1">
+                        <img src="image/015.png" alt="" class="a1-a">
+                        <img src="image/016.png" alt="" class="a1-b">
+                    </div>
+                    <p>컬렉터블게임</p>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- 상단 배너 아래 카테고리 아이콘 선일 작업 end -->
+    
+<!-- main 화면 찬종 작업 end -->
+<div class="mainbox">
+    <div id="center"></div>
+    
+    <div class="maincontent">
+        <div class="contenttitle">BEST 10
+	        <div class="more_wrap">
+	            <a href="https://www.naver.com" class="more_text">더보기<img class="more_img" src="image/more1.PNG"/></a>
+	        </div>
+        </div>
+        <div class="image_arrow_wrap">
+	        <div class="image_slide">
+	            <div class="img-container1 img_first">
+	                <img src="image/best1_new2.jpg" class="img-in-container"/>
+	            </div>
+	            <div class="img-container1">
+	                <img src="image/best2.jpg" class="img-in-container"/>
+	            </div>
+	            <div class="img-container1">
+	                <img src="image/best3.jpg" class="img-in-container"/>
+	            </div>
+	            <div class="img-container1">
+	                <img src="image/best4.jpg" class="img-in-container"/>
+	            </div>
+	            <div class="img-container1">
+	                <img src="image/best5.jpg" class="img-in-container"/>
+	            </div>
+	            <div class="img-container1">
+	                <img src="image/best6.png" class="img-in-container"/>
+	            </div>
+	            <div class="img-container1">
+	                <img src="image/best7.png" class="img-in-container"/>
+	            </div>
+	            <div class="img-container1 img_last">
+	                <img src="image/best8.jpg" class="img-in-container"/>
+	            </div>
+	        </div>
+	        <div class="arrow_wrap">
+	    		<span class="prevArrow"><</span>
+	    		<span class="nextArrow">></span>  
+			</div>
+		</div>
+    </div>
+    
+    <div class="maincontent">
+        <div class="contenttitle"> 보드밍 Pick!
+            <a href="https://www.naver.com" class="more2"> 더보기 > </a>
+        </div>
+        <div class="image_arrow_wrap">
+        	<div class = "image_slide2">
+                <div class="img-container themindcolor1">
+                    <img src="image/recommend1.jpg" class="img-in-container"/>
+                </div>
+                <div class="img-container themindcolor2">
+                    <img src="image/recommend2.jpg" class="img-in-container"/>
+                </div>
+                <div class="img-container themindcolor3">
+                    <img src="image/recommend3.png" class="img-in-container"/>
+                </div>
+                <div class="img-container themindcolor4">
+                    <img src="image/recommend4.png" class="img-in-container"/>
+                </div>
+                <div class="img-container themindcolor5">
+                    <img src="image/recommend5.jpg" class="img-in-container"/>
+                </div>
+                <div class="img-container themindcolor6">
+                    <img src="image/recommend6.jpg" class="img-in-container"/>
+                </div>
+                <div class="img-container themindcolor7">
+                    <img src="image/recommend7.png" class="img-in-container"/>
+                </div>
+                <div class="img-container themindcolor8">
+                    <img src="image/recommend8.jpg" class="img-in-container"/>
+                </div>
+            </div>
+	        <div class="arrow_wrap">
+	    		<span class="prevArrow2"><</span>
+	    		<span class="nextArrow2">></span>  
+			</div>
+		</div>
+    </div>
+    
+    <div class="maincontent">
+        <div class="contenttitle"><a href="https://www.naver.com">두 명 모였다고?! 오히려 좋아!</a>
+            <a href="https://www.naver.com"><img class="more1" src="image/more1.PNG" /></a>
+        </div>
+            <div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex4.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>캐스캐디아</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex2.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>익스플로딩 키튼</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex3.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>스플렌더</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex4.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>캐스캐디아</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex5.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>다빈치 코드</span>
+            </div>
+        </div>
+        <div>
+            <a href="https://www.naver.com"><img class="more3" src="image/more3.PNG" /></a>
+            <span class="more2text"><a href="https://www.naver.com">더보기&nbsp;&nbsp;</a></span>
+        </div>
+    </div>
+    <div class="maincontent">
+        <div class="contenttitle"><a href="https://www.naver.com">머리 맞대고 싸우자!!</a>
+            <a href="https://www.naver.com"><img class="more1" src="image/more1.PNG" /></a>
+        </div>
+            <div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex4.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>캐스캐디아</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex2.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>익스플로딩 키튼</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex3.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>스플렌더</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex4.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>캐스캐디아</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex5.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>다빈치 코드</span>
+            </div>
+        </div>
+        <div>
+            <a href="https://www.naver.com"><img class="more3" src="image/more3.PNG" /></a>
+            <span class="more2text"><a href="https://www.naver.com">더보기&nbsp;&nbsp;</a></span>
+        </div>
+    </div>
+    <div class="maincontent">
+        <div class="contenttitle"><a href="https://www.naver.com">머리 아프긴 싫은걸? 단순한 게임으로 스트레스 풀래</a>
+            <a href="https://www.naver.com"><img class="more1" src="image/more1.PNG" /></a>
+        </div>
+            <div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex4.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>캐스캐디아</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex2.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>익스플로딩 키튼</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex3.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>스플렌더</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex4.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>캐스캐디아</span>
+            </div>
+            <div class="img-container2">
+                <div class="img-wrapper">
+            		<img src="image/game-ex5.jpg" class="img-in-container"/>
+        		</div>
+                <span><br>다빈치 코드</span>
+            </div>
+        </div>
+        <div>
+            <a href="https://www.naver.com"><img class="more3" src="image/more3.PNG" /></a>
+            <span class="more2text"><a href="https://www.naver.com">더보기&nbsp;&nbsp;</a></span>
+        </div>
+    </div>
 </div>
-
-	<!-- 메인배너 박스 -->
-	<div id="demo" class="carousel slide" data-bs-ride="carousel">
-
-	  <!-- Indicators/dots -->
-	<div class="carousel-indicators">
-		<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-		<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-		<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-		<button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
-	</div>
-
-	<!-- The slideshow/carousel -->
-	<div class="carousel-inner">
-	<div class="carousel-item active">
-	  <img src="image/product_banner1.jpg" alt="Los Angeles" class="d-block w-100">
-	</div>
-	<div class="carousel-item">
-	  <img src="image/product_banner2.jpg" alt="Chicago" class="d-block w-100">
-	</div>
-		<div class="carousel-item"> 
-			<img src="image/product_banner3.jpg" alt="New York" class="d-block w-100">
-		</div>
-		<div class="carousel-item">
-			<img src="image/product_banner4.jpg" alt="New York" class="d-block w-100">
-		</div>
-	</div>
-	
-	<!-- Left and right controls/icons -->
-	<button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-	  <span class="carousel-control-prev-icon"></span>
-	</button>
-	<button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-	  <span class="carousel-control-next-icon"></span>
-	</button>
-  
-	</div>
-	
-	<!-- 임시 -->
-	<div id="imsi"></div>
-
+    <!-- main 화면 찬종 작업 end -->
+    
+    
+        <!-- footer start -->
+    <div id="footer">
+    	<div class="footer1">
+	        <span><br>&nbsp;&nbsp;&emsp;&emsp;<a href="header2.html">
+	                <img id="footerlogo" src="image/logo.png">
+	            </a><br></span>
+	        <span>&emsp;&emsp;&emsp;&nbsp;<a href="#">커뮤니티 규칙</a>&emsp; | &emsp;
+	        							  <a href="#">서비스 약관/정책</a>&emsp;  |&emsp;
+	        							  <a href="#">개인정보취급방침</a>&emsp;  |&emsp; 
+	        							  <a href="#">청소년보호정책</a>&emsp;  |&emsp;
+	        							  <a href="#">공지사항</a>&emsp;  |  &emsp;
+	        							  <a href="#">광고센터</a><br></span>
+	        <span>&emsp;&emsp;&emsp;&nbsp;회사명 : 보드밍&ensp; |&ensp;
+	         서울특별시 관악구 남부순환로 1820, 에그옐로우 7층&ensp; | &ensp;
+	         등록번호 : 123-45-67890&ensp; | &ensp;
+	         대표자명 : 박정환&ensp; |&ensp;
+	         고개지원 : klkcpc@globalit.com<br></span>
+	        <span>&emsp;&emsp;&emsp;&nbsp;위 내용에 대한 저작권 및 법적 책임은 자료제공사 또는 글쓴이에 있으며 보드밍의 입장과 다를 수 있습니다.<br></span>
+	        <span>&emsp;&emsp;&emsp;&nbsp;ⓒ BOARDMING. ALL RIGHTS RESERVED.</span>
+        </div>
+        <div class="footer2">
+        	<span><br><br><br>TEL : 02-123-4567<br></span>
+        	<span>AM 09:30 ~ PM 06:20<br></span>
+        	<span>주말, 공휴일 휴무<br></span>
+        </div>
+    </div>
+    <!-- footer end -->
 </body>
 </html>
